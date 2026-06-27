@@ -91,7 +91,7 @@ RESPONSE_CACHE_MAX=128
 
 Never commit `.env`. It is already included in `.gitignore`.
 
-## Run Locally on macOS
+## Run Locally
 
 Clone the repository:
 
@@ -103,8 +103,14 @@ cd medical-chatbot
 Create and activate a virtual environment:
 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
+```
+
+On Windows, activate it with:
+
+```bash
+.venv\Scripts\activate
 ```
 
 Install dependencies:
@@ -114,10 +120,15 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Install and start Ollama:
+Install Ollama from the official website:
+
+```text
+https://ollama.com/download
+```
+
+Start Ollama:
 
 ```bash
-brew install ollama
 ollama serve
 ```
 
