@@ -74,91 +74,27 @@ RESPONSE_CACHE_MAX=128
 
 Never commit `.env`. It is already included in `.gitignore`.
 
-## Run Locally
+## How It Works
 
-Clone the repository:
+The chatbot follows a retrieval-first workflow. Medical PDFs are converted into smaller text chunks, embedded into numerical vectors, and stored in Pinecone. When a user asks a question, the system searches for the most relevant document passages using both semantic similarity and keyword matching.
 
-```bash
-git clone git@github.com:annieannie12345/medical-chatbot.git
-cd medical-chatbot
-```
+The retrieved context is passed to a local Ollama model, which generates an answer grounded in the available medical material. This keeps responses focused on the uploaded knowledge base instead of depending only on the model's built-in training data.
 
-Create and activate a virtual environment:
+## User Experience
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
+- Ask natural medical questions in a simple chat interface
+- Receive short, focused answers based on retrieved document context
+- Stream responses as they are generated
+- Benefit from cached answers for repeated questions
+- Use curated PDF sources as the knowledge base
 
-On Windows, activate it with:
+## Ideal Use Cases
 
-```bash
-.venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-Install Ollama from the official website:
-
-```text
-https://ollama.com/download
-```
-
-Start Ollama:
-
-```bash
-ollama serve
-```
-
-In a new terminal, pull the model:
-
-```bash
-ollama pull qwen2.5:7b-instruct
-```
-
-Add your PDFs to `data/`, then ingest them into Pinecone:
-
-```bash
-python ingest.py
-```
-
-Run the Flask app:
-
-```bash
-python app.py
-```
-
-Open the app:
-
-```text
-http://127.0.0.1:8080
-```
-
-## Common Commands
-
-Re-ingest documents after adding or replacing PDFs:
-
-```bash
-python ingest.py --data-dir data --index medical-chatbot
-```
-
-Run the app with the virtual environment activated:
-
-```bash
-source .venv/bin/activate
-python app.py
-```
-
-Check whether Ollama has the required model:
-
-```bash
-ollama list
-```
+- Medical learning assistants
+- Healthcare document exploration
+- First-pass information retrieval from large PDFs
+- RAG experimentation with LangChain and Pinecone
+- Local LLM prototyping with Ollama
 
 ## Important Notes
 
