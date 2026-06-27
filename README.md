@@ -107,5 +107,4 @@ The retrieved context is passed to a local Ollama model, which generates an answ
 ## Author
 
 **Anisha Gupta**<br>
-M.Tech Artificial Intelligence<br>
-[GitHub: annieannie12345](https://github.com/annieannie12345)
+M.Tech Artificial Intelligence
