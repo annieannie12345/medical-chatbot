@@ -52,23 +52,6 @@ Flask chat interface
 | Embeddings | SentenceTransformers |
 | PDF processing | PyPDF |
 
-## Project Structure
-
-```text
-.
-├── app.py                 # Flask app and chat routes
-├── ingest.py              # PDF ingestion into Pinecone
-├── data/                  # Source medical PDFs
-├── src/
-│   ├── helper.py          # PDF loading, metadata, chunking, embeddings
-│   └── prompt.py          # System prompt
-├── static/                # CSS assets
-├── templates/             # Chat UI template
-├── research/              # Experiment notebook
-├── requirements.txt       # Python dependencies
-└── README.md
-```
-
 ## Environment Variables
 
 Create a `.env` file in the project root:
