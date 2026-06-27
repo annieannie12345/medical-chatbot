@@ -103,3 +103,7 @@ The retrieved context is passed to a local Ollama model, which generates an answ
 - Pinecone index setup must match the embedding model dimensions used by the project.
 - Ollama must be running while the Flask app is active.
 - Keep API keys in `.env`, not inside source code.
+
+## Author
+
+Created by [annieannie12345](https://github.com/annieannie12345)
